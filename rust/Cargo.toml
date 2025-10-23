@@ -1,0 +1,65 @@
+[package]
+name = "rust_benchmarks"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "matrix_multiply"
+path = "src/matrix_multiply.rs"
+
+[[bin]]
+name = "parallel_quicksort"
+path = "src/parallel_quicksort.rs"
+
+[[bin]]
+name = "thread_pool"
+path = "src/thread_pool.rs"
+
+[[bin]]
+name = "ray_tracer"
+path = "src/ray_tracer.rs"
+
+[[bin]]
+name = "mandelbrot"
+path = "src/mandelbrot.rs"
+
+[[bin]]
+name = "metal_compute"
+path = "src/metal_compute.rs"
+
+[[bin]]
+name = "prime_sieve"
+path = "src/prime_sieve.rs"
+
+[[bin]]
+name = "fft"
+path = "src/fft.rs"
+
+[[bin]]
+name = "sha256"
+path = "src/sha256.rs"
+
+[[bin]]
+name = "json_parse"
+path = "src/json_parse.rs"
+
+[dependencies]
+rayon = "1.8"
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+sha2 = "0.10"
+rustfft = "6.1"
+num-complex = "0.4"
+metal = "0.27"
+objc = "0.2"
+cocoa = "0.25"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.release.build-override]
+opt-level = 3
+
